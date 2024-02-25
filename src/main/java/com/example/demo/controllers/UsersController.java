@@ -83,7 +83,7 @@ public class UsersController {
         if (userRepo.existsById(uid)) {
             userRepo.deleteById(uid);
             response.setStatus(HttpServletResponse.SC_OK);
-            return "/users/userDeleted";
+            return "users/userDeleted";
         } else {
             response.setStatus(HttpServletResponse.SC_OK);
             return "users/userNotFound";
