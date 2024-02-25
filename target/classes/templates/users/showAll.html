@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .student
+        {
+            border-style: solid;
+            margin:20px;
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .green-border
+        {
+            border-color:green;
+        }
+        
+        .blue-border
+        {
+            border-color:blue;
+        }
+        .grey-border
+        {
+            border-color:grey;
+        }
+        .black-border
+        {
+            border-color:black;
+        }
+        .blonde-border
+        {
+            border-color:#FBF6D9;
+        }
+        .red-border
+        {
+            border-color:red;
+        }
+        .brown-border
+        {
+            border-color:brown;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <main class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <h1>USERS</h1>
+                <a href="/home.html">Return Home</a>
+                
+                <ul>
+                    <div th:each="user:${us}" class="student" 
+                    th:classappend="${user.hairColor == 'green' ? 'green-border' : ''} +
+                                    ${user.hairColor == 'blue' ? 'blue-border' : ''}+
+                                    ${user.hairColor == 'grey' ? 'grey-border' : ''}+
+                                    ${user.hairColor == 'black' ? 'black-border' : ''}+
+                                    ${user.hairColor == 'red' ? 'red-border' : ''}+
+                                    ${user.hairColor == 'brown' ? 'brown-border' : ''}+
+                                    ${user.hairColor == 'blonde' ? 'blonde-border' : ''}
+                                    " 
+                    th:style="'height:' + (${user.height}*2) + 'px;' + 'width:' + (${user.weight}*1.5) + 'px;'">
+                        
+                        
+                        <a th:href="@{/users/edit(uid=${user.uid})}" th:text="${user.name}">User Name</a><br>
+                        <span th:text="height + ' ' + ${user.height} + cm"></span><br>
+                        <span th:text="weight + ' '+ ${user.weight} + lb"></span><br>
+                        <span th:text="GPA + ' '+ ${user.gpa}"></span><br>
+                        <span th:text="HairColor + ' ' + ${user.hairColor}"></span>
+                        
+                        
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
