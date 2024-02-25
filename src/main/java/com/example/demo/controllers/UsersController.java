@@ -69,10 +69,10 @@ public class UsersController {
             
             userRepo.save(user);
             response.setStatus(HttpServletResponse.SC_OK);
-            return "/users/updatedUser"; 
+            return "users/updatedUser"; 
         } else {
             response.setStatus(HttpServletResponse.SC_OK);
-            return "/users/userNotFound"; 
+            return "users/userNotFound"; 
         }
     }
     // If the uid exists then it is deleted from the database
